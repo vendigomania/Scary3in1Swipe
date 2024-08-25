@@ -22,7 +22,6 @@ namespace Code
         public GameObject _selectItem;
         public GameObject vfxEffect;
         public float AllowedDistance;
-        public SpriteRenderer BgSprite;
         public AudioSource Audio;
         public Game Game;
         public GameObject Grid;
@@ -41,27 +40,6 @@ namespace Code
             Instance = this;
 
             // GenerateBoard();
-
-            BgScale(BgSprite);
-        }
-
-        private void BgScale(SpriteRenderer sprite)
-        {
-            float cameraWidth = 2.5f * Camera.orthographicSize;
-            float cameraHeight = cameraWidth * Camera.aspect;
-
-            Bounds spriteBounds = sprite.bounds;
-            Vector3 spriteSize = spriteBounds.size;
-
-            var spriteWidth = spriteSize.x;
-            var spriteHeight = spriteSize.y;
-
-            var scaleX = cameraHeight / spriteHeight;
-            var scaleY = cameraWidth / spriteWidth;
-
-
-            sprite.transform.localScale = new Vector2(scaleX, scaleY - 1);
-            sprite.transform.position = new Vector3(XGridSize / 2 - _offset, YGridSize / 2);
         }
 
         private void Update()
