@@ -98,7 +98,7 @@ public class Game : MonoBehaviour
 
    public void GhostTakeDamage(int value)
    {
-      Ghost.rectTransform.Translate(Vector3.left * value * Time.deltaTime * GhostSpeed * 10);
+      Ghost.rectTransform.Translate(Vector3.left * value * Time.deltaTime * GhostSpeed * 3f);
    }
    private void ProgressLevel()
    {
