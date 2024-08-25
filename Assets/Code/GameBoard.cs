@@ -85,12 +85,17 @@ namespace Code
                     cell.transform.parent = Grid.transform;
 
                     _listOfCells.Add(cell);
+
+
+                    _alltemsList.Add(Instantiate(ListItems[Random.Range(0, ListItems.Count)], new Vector3(x, y, -1f),
+                        quaternion.identity));
+
                 }
 
-                var spawncell = Instantiate(SpawnCell, new Vector3(x, YGridSize + 2), quaternion.identity);
-                spawncell.transform.parent = Grid.transform;
-                _createsGameObjectsList.Add(spawncell);
-                spawncell.GetComponent<ItemCreate>().Game = this;
+                //var spawncell = Instantiate(SpawnCell, new Vector3(x, YGridSize + 2), quaternion.identity);
+                //spawncell.transform.parent = Grid.transform;
+                //_createsGameObjectsList.Add(spawncell);
+                //spawncell.GetComponent<ItemCreate>().Game = this;
             }
 
         }
@@ -169,7 +174,7 @@ namespace Code
             {
                 if (_selectItemsList.Count >= 3)
                 {
-                    int[] towers = new int[_createsGameObjectsList.Count];
+                    int[] towers = new int[XGridSize];
 
                     for(int i = 0; i < _selectItemsList.Count; i++)
                     {
