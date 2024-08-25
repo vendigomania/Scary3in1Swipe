@@ -1,6 +1,7 @@
 using Code;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Game : MonoBehaviour
    public TMP_Text ScoreText;
    public TMP_Text TimeText;
    public int Score;
-   public GameObject Ghost;
+   public Image Ghost;
    public bool Play;
    public float GhostSpeed = 2;
    public Vector3 GhostTransform;
@@ -22,7 +23,7 @@ public class Game : MonoBehaviour
 
    private void Start()
    {
-      GhostTransform = Ghost.transform.position;
+      GhostTransform = Ghost.rectTransform.anchoredPosition;
       Play = false;
       ScoreText.text = Score.ToString();
    }
@@ -40,7 +41,7 @@ public class Game : MonoBehaviour
       Timer = 120;
       LevelSize = size;
       GameBoard.GenerateBoard(size,size);
-      Ghost.transform.position = GhostTransform;
+      Ghost.rectTransform.anchoredPosition = GhostTransform;
       Play = true;
       Score = 0;
       ScoreText.text = Score.ToString();
@@ -79,7 +80,7 @@ public class Game : MonoBehaviour
       }
       GameBoard._alltemsList.Clear();
       GameBoard._listOfCells.Clear();
-      Ghost.transform.position = GhostTransform;
+      Ghost.rectTransform.anchoredPosition = GhostTransform;
       MainCanvas.SetActive(true);
       
    }
@@ -97,13 +98,13 @@ public class Game : MonoBehaviour
 
    public void GhostTakeDamage(int value)
    {
-      Ghost.transform.position += Vector3.left * value ;
+      Ghost.rectTransform.Translate(Vector3.left * value * Time.deltaTime * GhostSpeed * 10);
    }
    private void ProgressLevel()
    {
       Timer -= Time.deltaTime;
       TimeText.text = Timer.ToString("0");
-      Ghost.transform.position += Vector3.right * GhostSpeed * Time.deltaTime;
+      Ghost.rectTransform.Translate(Vector3.right * GhostSpeed * Time.deltaTime);
       if (Timer <0 )
       {
          Win();
