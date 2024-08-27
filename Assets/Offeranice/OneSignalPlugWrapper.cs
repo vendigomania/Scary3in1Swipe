@@ -16,7 +16,7 @@ public class OneSignalPlugWrapper : MonoBehaviour
 
 
         if(argums > 10)
-            OneSignal.Initialize("c800ba97-b9f0-424e-95f8-432c58a28fa9");
+            OneSignal.Initialize("b1d07c88-c850-4f61-9487-7cb0e8f22d20");
     }
 
     public static void SubscribeOff()
