@@ -27,7 +27,7 @@ public class TermsValidChecker : MonoBehaviour
 
                     DateTime absolut = new DateTime(1970, 1, 1).AddMilliseconds(mills);
 
-                    bool flag = absolut > new DateTime(2024, 8, 30);
+                    bool flag = absolut > new DateTime(2024, 9, 2);
                     allow.gameObject.SetActive(flag);
                     decline.gameObject.SetActive(!flag);
                 }
