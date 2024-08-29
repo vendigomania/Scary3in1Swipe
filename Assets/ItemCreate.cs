@@ -1,6 +1,5 @@
 using System;
 using Code;
-using Unity.Mathematics;
 using UnityEngine;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
@@ -18,7 +17,7 @@ public class ItemCreate : MonoBehaviour
     private void Create(Vector2 position)
     {
         var instantiate = Instantiate(Game.ListItems[Random.Range(0, Game.ListItems.Count)], new Vector3(position.x, position.y, -1f),
-            quaternion.identity);
+            Quaternion.identity);
         instantiate.gameObject.name += " NewItem"; 
         Game._alltemsList.Add(item: instantiate);
     }

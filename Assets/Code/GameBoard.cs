@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -58,7 +57,7 @@ namespace Code
             {
                 for (int y = 0; y < YGridSize; y++)
                 {
-                    var cell = Instantiate(CellPrefab, new Vector3(x, y), quaternion.identity);
+                    var cell = Instantiate(CellPrefab, new Vector3(x, y), Quaternion.identity);
 
                     cell.transform.parent = Grid.transform;
 
@@ -66,7 +65,7 @@ namespace Code
 
 
                     _alltemsList.Add(Instantiate(ListItems[Random.Range(0, ListItems.Count)], new Vector3(x, y, -1f),
-                        quaternion.identity));
+                        Quaternion.identity));
 
                 }
 

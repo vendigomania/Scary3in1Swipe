@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -44,9 +43,9 @@ public class GameBoardRigidbodyMode : MonoBehaviour
         {
             for (int y = 0; y < YSizeBoard; y++)
             {
-                var cell = Instantiate(CellPrefab, new Vector3(x, y), quaternion.identity);
+                var cell = Instantiate(CellPrefab, new Vector3(x, y), Quaternion.identity);
                 var item = Instantiate(ListItems[Random.Range(0, ListItems.Count)], new Vector3(x, y),
-                    quaternion.identity);
+                    Quaternion.identity);
 
                 _listCells.Add(cell);
             }
